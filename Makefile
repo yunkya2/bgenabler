@@ -59,6 +59,10 @@ DEPS = $(OBJS:.o=.d)
 clean:
 	-rm -f $(OBJS) $(DEPS) *.x *.elf* *.map *.d *.o
 
+release: clean all
+	./md2txtconv.py README.md
+	zip -r bgenabler_$(GIT_REPO_VERSION).zip README.txt bgenabler.x
+
 -include $(DEPS)
 
-.PHONY: all clean
+.PHONY: all clean release
