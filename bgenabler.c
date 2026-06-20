@@ -369,6 +369,10 @@ static int parse_cmdline(const char *p, bool issys, struct bgenabler_param *para
         return -2;
     }
 
+    // Human68k v3.02にパッチを当てる
+    void fpu030patch(void);
+    fpu030patch();
+
     if (issys) {
         while (*p++ != '\0')    // デバイスドライバ名をスキップする
             ;

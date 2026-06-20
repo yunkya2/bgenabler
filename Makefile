@@ -40,7 +40,7 @@ INC += -I.
 DEFS +=
 
 TARGET = bgenabler.x
-OBJS += head.o bgenabler.o
+OBJS += head.o bgenabler.o fpu030patch.o
 LIBS +=
 
 all: $(TARGET)
