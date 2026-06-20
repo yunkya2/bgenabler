@@ -64,7 +64,7 @@ interrupt_asm:
 timerc_intr:                            // Timer-C割り込み処理 (100Hz)
     tst.b   0x0cbc.w
     beq.s   1f
-    move.w  %sp@(6),%sp@-               // (68000以外の場合のスタックフレーム調整)
+    clr.w   %sp@-                       // (68000以外の場合のスタックフレーム調整)
 1:
     pea.l   %pc@(timerc_bg)             // 元のTimer-C割り込み処理が終わったら呼び出す処理
     move.w  %sr,%sp@-
